@@ -1,18 +1,18 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import QuizIndex from "./screens/QuizIndex";
-import Quiz from "./screens/Quiz";
+import SurveyIndex from "./screens/SurveyIndex";
+import Survey from "./screens/Survey";
 import Report from "./screens/Report";
 
 const MainStack = createStackNavigator({
   QuizIndex: {
-    screen: QuizIndex,
+    screen: SurveyIndex,
     navigationOptions: {
       headerTitle: "Covid-19 Symptom Servey Application "
     }
   },
   Quiz: {
-    screen: Quiz,
+    screen: Survey,
     navigationOptions: ({ navigation }) => ({
       headerTitle: navigation.getParam("title"),
     })

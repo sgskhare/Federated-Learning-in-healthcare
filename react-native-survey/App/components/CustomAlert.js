@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Alert = ({ correct, visible }) => {
+export const CustomAlert = ({ correct, visible }) => {
   if (!visible) return null;
 
   const icon = require("../assets/check.png")

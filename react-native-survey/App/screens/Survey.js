@@ -1,8 +1,8 @@
 import React from "react";
 import { View, StyleSheet, StatusBar, Text, SafeAreaView } from "react-native";
 
-import { Button, ButtonContainer } from "../components/Button";
-import { Alert } from "../components/Alert";
+import { CustomButton, CustomButtonContainer } from "../components/CustomButton";
+import { CustomAlert } from "../components/CustomAlert";
 
 const styles = StyleSheet.create({
   container: {
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
   }
 });
 
-class Quiz extends React.Component {
+class Survey extends React.Component {
   state = {
     totalCount: this.props.navigation.getParam("questions", []).length,
     activeQuestionIndex: 0,
@@ -33,7 +33,7 @@ class Quiz extends React.Component {
     surveryAnswerArray: []
   };
 
-  answer = correct => {
+  recordInput = correct => {
     this.setState(
       state => {
         const nextState = { answered: true };
@@ -87,22 +87,22 @@ class Quiz extends React.Component {
           <View>
             <Text style={styles.text}>{question.question}</Text>
 
-            <ButtonContainer>
+            <CustomButtonContainer>
               {question.answers.map(answer => (
-                <Button
+                <CustomButton
                   key={answer.id}
                   text={answer.text}
-                  onPress={() => this.answer(answer.correct)}
+                  onPress={() => this.recordInput(answer.correct)}
                 />
               ))}
-            </ButtonContainer>
+            </CustomButtonContainer>
           </View>
 
           <Text style={styles.text}>
             {`${this.state.activeQuestionIndex + 1}/${this.state.totalCount}`}
           </Text>
         </SafeAreaView>
-        <Alert
+        <CustomAlert
           correct={true}
           visible={this.state.answered}
         />
@@ -111,4 +111,4 @@ class Quiz extends React.Component {
   }
 }
 
-export default Quiz;
+export default Survey;

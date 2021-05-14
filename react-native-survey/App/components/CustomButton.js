@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
   }
 });
 
-export const Button = ({ text, onPress = () => {} }) => (
+export const CustomButton = ({ text, onPress = () => { } }) => (
   <TouchableOpacity onPress={onPress} style={styles.button}>
     <Text style={styles.text}>{text}</Text>
   </TouchableOpacity>
 );
 
-export const ButtonContainer = ({ children }) => (
+export const CustomButtonContainer = ({ children }) => (
   <View style={styles.buttonContainer}>{children}</View>
 );
